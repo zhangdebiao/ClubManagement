@@ -1,0 +1,15 @@
+{% extends "management/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+    {% for user in users %}
+        {% if user.permission == 1 %}
+            <div style="margin-left: 200px">
+            社员:{{ user.nickname }} <a href="{% url 'delete_user' user.uid %}">移除社团</a>
+            </div>
+        {% endif %}
+        <br>
+    {% endfor %}
+{% endblock%}
+
